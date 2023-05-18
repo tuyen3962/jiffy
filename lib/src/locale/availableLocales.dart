@@ -21,6 +21,7 @@ import 'package:jiffy/src/locale/ukLocale.dart';
 import 'package:jiffy/src/locale/azLocale.dart';
 import 'package:jiffy/src/locale/svLocale.dart';
 import 'package:jiffy/src/locale/trLocale.dart';
+import 'package:jiffy/src/locale/viLocale.dart';
 import 'package:jiffy/src/locale/zhCnLocale.dart';
 import 'package:jiffy/src/locale/zhLocale.dart';
 import 'package:jiffy/src/locale/bnLocale.dart';
@@ -74,8 +75,13 @@ Map<String, Locale> _availableLocales = {
   'fa': FaLocale(true, StartOfWeek.SATURDAY),
   'bn': BnLocale(StartOfWeek.SUNDAY),
   'nl': NlLocale(StartOfWeek.MONDAY),
-  'th': ThLocale(StartOfWeek.SUNDAY)
+  'th': ThLocale(StartOfWeek.SUNDAY),
+  'vi': ViLocale(StartOfWeek.MONDAY),
 };
+
+void addLocale(String localeCode, Locale locale) {
+  _availableLocales.putIfAbsent(localeCode, () => locale);
+}
 
 Locale getLocale(String locale) {
   return _availableLocales[locale.toLowerCase()] ??
